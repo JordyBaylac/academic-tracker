@@ -1,0 +1,67 @@
+
+<!--<md-sidenav-container>
+  <md-sidenav mode="push" #sidenav>
+    Jolly good!
+  </md-sidenav>
+
+  <div class="example-sidenav-content">
+    <button md-button (click)="sidenav.open()">
+      Open sidenav
+    </button>
+  </div>
+
+</md-sidenav-container>-->
+<md-toolbar color="primary">
+    <span>Academic Tracker</span>
+    <span class="app-spacer"></span>
+    <span>
+      <button #trigger md-icon-button [mdMenuTriggerFor]="menu">
+        <md-icon>menu</md-icon>
+        <md-menu #menu="mdMenu" xPosition="before" [overlapTrigger]="false">
+          <button md-menu-item *ngIf="userIsLogged()">
+            <md-icon>account_circle</md-icon>
+            <span>Profile</span>
+          </button>
+          <button md-menu-item *ngIf="!userIsLogged()"
+              [routerLink]="['/user/login']">
+              <!--[active]="isRouterLinkActive(rlaLogin)"-->
+            <md-icon>perm_identity</md-icon>
+            <span>Log in</span>
+          </button>
+          <button md-menu-item *ngIf="!userIsLogged()"
+              [routerLink]="['/user/register']">
+              <!--[active]="isRouterLinkActive(rlaLogin)"-->
+            <md-icon>group</md-icon>
+            <span>Create account</span>
+          </button>
+          <button md-menu-item (click)="signOut()" *ngIf="userIsLogged()">
+            <md-icon>exit_to_app</md-icon>
+            <span>Sign out</span>
+          </button>
+        </md-menu>
+      </button>
+    </span>
+</md-toolbar>
+
+
+<nav md-tab-nav-bar>
+
+  <a md-tab-link [routerLink]="['/home']" routerLinkActive
+      #rla="routerLinkActive" [active]="isRouterLinkActive(rla)">
+    <div class="app-vertical-aligned-middle">
+      <md-icon>home</md-icon>
+      <span>Home</span>
+    </div>
+  </a>
+
+  <a md-tab-link [routerLink]="['/academic']" routerLinkActive
+     #rlaAcademic="routerLinkActive" [active]="isRouterLinkActive(rlaAcademic)">
+    <div class="app-vertical-aligned-middle">
+      <md-icon>dashboard</md-icon>
+      <span>My Dashboard</span>
+    </div>
+  </a>
+
+</nav>
+
+

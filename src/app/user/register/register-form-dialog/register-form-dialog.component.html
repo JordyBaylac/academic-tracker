@@ -1,0 +1,54 @@
+<form [formGroup]="registerForm">
+
+  <table cellspacing="0">
+    <tr>
+      <td>
+        <md-input-container>
+          <input mdInput formControlName="fullname" placeholder="Name" value="John Doe" required>
+        </md-input-container>
+      </td>
+      <td>
+        <md-input-container>
+          <input mdInput type="email" formControlName="email" placeholder="email@dot.com" required>
+        </md-input-container>
+      </td>
+    </tr>
+  </table>
+
+  <p >
+    <md-input-container>
+      <!--[(ngModel)]="user.password" #password -->
+      <input mdInput type="password" formControlName="password" placeholder="password" required>
+
+    </md-input-container>
+    <md-input-container>
+      <input mdInput type="password" formControlName="check_password"  placeholder="Repeat password" required>
+    </md-input-container>
+  </p>
+</form>
+
+<div *ngIf="registerForm.invalid && registerForm.dirty" class="password-count-alert">
+
+    <app-control-messages
+      [control]="registerForm.controls['email']" [errors]="registerForm.controls['email'].errors">
+    </app-control-messages>
+
+    <app-control-messages
+      [control]="registerForm.controls['password']" [errors]="registerForm.controls['password'].errors">
+    </app-control-messages>
+
+    <!--Password input invalid and touched-->
+    <div *ngIf="registerForm.controls['check_password']?.touched
+            && registerForm.controls['password']?.touched"
+            >
+
+      <div *ngIf=" registerForm.controls['check_password'].value!=registerForm.controls['password'].value ">
+        Password must match
+      </div>
+    </div>
+
+</div>
+<hr/>
+<div class="button-row">
+  <button md-raised-button><md-icon [style.margin-right.em]="0.23">check</md-icon>Join</button>
+</div>

@@ -1,4 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  UserIsLoggedActivator,
+  UserIsNotLoggedActivator,
+  AcademicMouleActivator
+} from './guards/barrel';
+import { UserModule } from './user/user.module';
+// import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -7,25 +15,30 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 
-// https://github.com/edcarroll/ng2-semantic-ui
-////, "semantic-ui/semantic-ui.min.css"
-// import { SuiDimmerModule } from 'ng2-semantic-ui/components/dimmer/dimmer.module';
 import { SharedModule } from './shared/shared.module';
-
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    SharedModule
+    AppRoutingModule,
+    SharedModule,
+    UserModule
   ],
-  providers: [],
+  providers: [
+    UserIsLoggedActivator,
+    UserIsNotLoggedActivator,
+    AcademicMouleActivator
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,26 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+
+  <md-input-container>
+    <input mdInput type="email" formControlName="email" placeholder="email@dot.com" required>
+  </md-input-container>
+
+  <p >
+    <md-input-container>
+      <input mdInput type="password" formControlName="password" placeholder="password" required>
+    </md-input-container>
+  </p>
+
+
+<div *ngIf="loginForm.invalid && loginForm.dirty" class="password-count-alert">
+
+    <app-control-messages
+      [control]="loginForm.controls['email']" [errors]="loginForm.controls['email'].errors">
+    </app-control-messages>
+
+</div>
+
+<div class="button-row app-margin-top-button" >
+  <button md-raised-button type="submit" [disabled]="loginForm.invalid"><md-icon [style.margin-right.em]="0.23">check</md-icon>Log in</button>
+</div>
+
+</form>

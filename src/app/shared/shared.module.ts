@@ -1,20 +1,26 @@
+import { ControlMessagesComponent } from './control-message.component';
+import { ValidationService } from './validation.service';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { JQUERY_TOKEN } from './jquery.service';
-
-
-//// tslint:disable-next-line:prefer-const
-// declare let jQuery: any;
+import { MaterialModule } from './material.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
-  declarations: [],
+  declarations: [
+    ControlMessagesComponent
+  ],
   providers: [
-    // {
-    //   provide: JQUERY_TOKEN, useValue: jQuery
-    // }
+    // {provide: JQUERY_TOKEN, useValue: jQuery}
+    ValidationService
+  ],
+  exports: [
+    MaterialModule,
+    CommonModule,
+    ControlMessagesComponent
   ]
 })
 export class SharedModule { }

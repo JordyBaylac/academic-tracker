@@ -1,2 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/*@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+/*@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';*/
+/*@import '~@angular/material/prebuilt-themes/purple-green.css';*/
+
+
+.app-vertical-aligned-middle {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  text-align: right;
+}
+
+.app-spacer {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.app-horizontal-aligned-right {
+  /*display: inline-flex;*/
+  /*align-content: stretch;*/
+  text-align: right;
+}
+
+.app-margin-top-button {
+  margin-top: 0.58em!important;
+}
+
+.password-count-alert {
+  color: red
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
